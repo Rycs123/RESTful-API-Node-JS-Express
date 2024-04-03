@@ -3,6 +3,7 @@ const {
   getDatas,
   updateData,
   deleteData,
+  getDataById,
 } = require("../models/data-model");
 const { validateData } = require("../utils/validation");
 const ErrorResponse = require("../utils/errorResponse");
@@ -51,4 +52,12 @@ exports.deleteData = (req, res, next) => {
 
   // masukkan ke dalam model
   deleteData(res, querySearch, queryDelete, req.params.id, next);
+};
+
+// Get data by ID
+exports.readDataById = (req, res, next) => {
+  const id = req.params.id;
+  const querySql = "SELECT * FROM identitas WHERE id = ?"; // Adjust your SQL query based on your table structure
+
+  getDataById(res, querySql, id, next);
 };

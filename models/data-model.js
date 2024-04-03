@@ -98,3 +98,16 @@ exports.deleteData = (response, searchStatement, deleteStatement, id, next) => {
     }
   });
 };
+exports.getDataById = (res, querySql, id, next) => {
+  connection.query(querySql, id, (err, rows, fields) => {
+    if (err) {
+      return next(new ErrorResponse(err.message, 500));
+    }
+
+    if (rows.length === 0) {
+      return next(new ErrorResponse(`Data with ID ${id} not found`, 404));
+    }
+
+    responseData(res, 200, rows[0]);
+  });
+};
