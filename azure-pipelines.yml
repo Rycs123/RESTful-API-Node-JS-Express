@@ -12,10 +12,10 @@ variables:
   azureSubscription: '43e3f96e-efc7-4323-b5b7-8b9d6703d567'
 
   # Web app name
-  webAppName: ''
+  webAppName: 'RESTful-API-Node-JS-Express'
 
   # Environment name
-  environmentName: ''
+  environmentName: 'production'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
